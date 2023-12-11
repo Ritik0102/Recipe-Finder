@@ -6,7 +6,7 @@ const RecipeFinder = () => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_API_KEY}&ingredients=${query}&number=5`;
+  const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${import.meta.env.REACT_APP_API_KEY}&ingredients=${query}&number=5`;
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -52,6 +52,7 @@ const RecipeFinder = () => {
       <div className="d-flex justify-content-center my-3">
         {loading && <Spinner/>}
       </div>
+      <div className="container">
       <div className="d-flex justify-content-center my-2">
         {recipes.map((recipe) => (
           <div
@@ -74,6 +75,7 @@ const RecipeFinder = () => {
             </div>
           </div>
         ))}
+      </div>
       </div>
       <br />
     </div>
